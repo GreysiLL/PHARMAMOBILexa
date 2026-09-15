@@ -32,4 +32,8 @@ Los registros se guardan en memoria. Se conservan durante la navegación y la ro
 - `docs/CAPTURAS/`: evidencias visuales de ejecución.
 - `docs/VERIFICACION.md`: estado real de los requisitos y limitaciones de verificación.
 
-La rama requerida es `feature/clean-mvvm`. El enunciado pide un commit por ítem, con mensajes en español en imperativo. No hay ningún remoto configurado ni se ha publicado el proyecto.
+La rama de entrega es `feature/clean-mvvm`. El historial conserva un commit por ítem. Repositorio: https://github.com/GreysiLL/PHARMAMOBILexa
+
+- [Informe PDF con portada, explicación y ocho capturas](docs/Informe-BiblioMobil-Grease-Duran-Castro.pdf).
+- Android: 48 pruebas aprobadas, cero fallos, según el registro de ejecución incluido.
+- La verificación de iOS sigue pendiente de ejecución en macOS con Xcode.
