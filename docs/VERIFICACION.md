@@ -1,37 +1,24 @@
 # Estado de verificación
 
-Fecha: 15 de septiembre de 2026.
+## Android aprobado
 
-## Implementado
+El 15 de septiembre de 2026 se ejecutaron **48 pruebas, con 0 fallos y 0 omitidas**, y `:androidApp:assembleDebug` terminó correctamente. La salida real está en `RESPUESTAS.md` y `PRUEBAS.log`. Se crearon los diez commits por ítem y el commit de documentación en la rama `feature/clean-mvvm`.
 
-- Modelos y constantes del Anexo A: Libro con año, Lector y préstamos con días y multa.
-- Contratos suspend, cuatro casos de uso, errores por campo y cancelación propagada.
-- Repositorios en memoria con Mutex, identificadores correlativos y latencia.
-- Formularios, StateFlow, cuatro fases, limpieza y recarga.
-- Koin por interfaces y single, casos de uso factory, inicialización Android/iOS.
-- Inicio, destinos desde una lista, Saver de navegación y tema propio.
-- Paletas completas (incluidos los roles fixed y surfaceContainer) y corrección de contraste de la barra en modo oscuro.
-- 48 pruebas automatizadas escritas en commonTest.
-- Tres respuestas teóricas propuestas en RESPUESTAS.md.
+En el emulador se comprobó el registro de libros y lectores, teléfono ausente como «No registrado», navegación, modo claro/oscuro, conservación del formulario al rotar y doble toque sin registros duplicados. Un libro con 2 ejemplares mostró «Pocos ejemplares». Se actualizaron Inicio oscuro y Préstamos tras instalar la corrección de contraste.
 
-## Comprobado en el emulador
+## Capturas completas
 
-Con la versión instalada por Android Studio se verificó el registro de libros y lectores, navegación, tema claro/oscuro y pantalla de préstamos. Se registró a Elena (elena@example.org) sin teléfono y se comprobó «No registrado». Se escribió Rayuela, Cortazar, 1998 y 2 ejemplares; al rotar a horizontal y volver se conservaron el destino y los cuatro campos. Dos pulsaciones consecutivas en Registrar incrementaron el catálogo de 1 a 2 libros, y el nuevo libro mostró «Pocos ejemplares». El formulario se limpió después del registro.
+Se guardaron y revisaron las ocho capturas, incluidas Cargando y Error. El archivo LibroRepositorioEnMemoria.kt fue restaurado exactamente desde HEAD y git diff confirmó que no quedan modificaciones de la simulación. Falta ejecutar el cierre de reinstalación y commit desde la terminal; si ya se ejecutó, su resultado aparece al final de este documento.
 
-Estas comprobaciones corresponden al APK instalado antes de los últimos ajustes de colores. Debe reconstruirse el APK y actualizar las capturas oscuras para reflejar esos ajustes.
+## iOS pendiente
 
-## Pendiente: no declarar la entrega completa
+La inicialización de Koin desde Swift y el destino iOS están implementados, pero no se ha comprobado su compilación en macOS. En un Mac con Xcode, ejecutar:
 
-1. Ejecutar las 48 pruebas y compilar la última revisión. No hay todavía un reporte de pruebas aprobadas. La sesión de Codex recibe AccessDeniedException al resolver rutas Java incluso con permisos concedidos.
-2. Registrar los commits por ítem. La rama feature/clean-mvvm existe, pero la escritura del índice Git está bloqueada para esta sesión.
-3. Obtener libros-cargando.png y libros-error.png. La captura de error requiere una simulación temporal que no debe quedar en el código final.
-4. Actualizar las capturas oscuras después de compilar la corrección de contraste.
-5. Compilar el destino iOS en macOS con Xcode usando ./gradlew :shared:compileKotlinIosSimulatorArm64. No se ha verificado desde Windows.
-
-## Terminar desde la terminal de Android Studio
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\verificar-entrega.ps1 -CrearCommits
+```shell
+bash ./gradlew :shared:compileKotlinIosSimulatorArm64
 ```
 
-El script elige el JDK de Android Studio, ejecuta pruebas y compilación, comprueba los XML, pega la salida real en RESPUESTAS.md y crea commits separados por ítem solamente si Android pasa. No publica ningún repositorio. Un fallo detiene el script; debe revisarse docs/PRUEBAS.log. Tras añadir las capturas restantes, registrar un commit adicional de evidencias.
+El aviso de tests iOS deshabilitados en Windows no acredita esta comprobación. No declarar la entrega íntegramente verificada hasta obtener ese resultado.
+
+Cierre ejecutado el 2026-09-15 15:47: verificación Android correcta y aplicación normal reinstalada. Ocho capturas completas. Sigue pendiente comprobar iOS en macOS.
+
