@@ -34,6 +34,6 @@ Los registros se guardan en memoria. Se conservan durante la navegación y la ro
 
 La rama de entrega es `feature/clean-mvvm`. El historial conserva un commit por ítem. Repositorio: https://github.com/GreysiLL/PHARMAMOBILexa
 
-- [Informe PDF con portada, explicación y ocho capturas](docs/Informe-BiblioMobil-Grease-Duran-Castro.pdf).
+- [Informe PDF con portada, explicación y ocho capturas](docs/EXAU1.pdf).
 - Android: 48 pruebas aprobadas, cero fallos, según el registro de ejecución incluido.
 - La verificación de iOS sigue pendiente de ejecución en macOS con Xcode.
